@@ -1,0 +1,15 @@
+BFS (Breadth First Search) is a graph traversal algorithm that explores nodes level by level. It uses a queue data structure.
+
+DFS (Depth First Search) is a graph traversal algorithm that explores nodes deeply before backtracking. It uses a stack or recursion.
+
+A stack follows LIFO (Last In First Out) principle. A queue follows FIFO (First In First Out) principle.
+
+Binary Search works on sorted arrays and has a time complexity of O(log n).
+
+Linear Search checks each element one by one and has time complexity O(n).
+
+A tree is a hierarchical data structure with nodes connected by edges.
+
+A graph is a collection of nodes (vertices) and edges.
+
+Sorting is the process of arranging data in a specific order (ascending or descending).
