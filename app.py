@@ -22,6 +22,25 @@ if uploaded_file:
     else:
         notes_text = uploaded_file.read().decode("utf-8", errors="ignore")
     st.success(f"✅ Notes loaded — {len(notes_text.split())} words")
+    text_splitter = RecursiveCharacterTextSplitter(
+    chunk_size=500,
+    chunk_overlap=50
+)
+
+chunks = text_splitter.create_documents([notes_text])
+
+embeddings = GoogleGenerativeAIEmbeddings(
+    model="models/embedding-001",
+    google_api_key=api_key
+)
+
+vector_store = Chroma.from_documents(
+    documents=chunks,
+    embedding=embeddings,
+    persist_directory="chroma_db"
+)
+
+retriever = vector_store.as_retriever()
 
 st.header("Step 2 — Ask a Question")
 question = st.text_input("Type your question here")
