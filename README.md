@@ -41,6 +41,7 @@ The system retrieves only the most relevant sections from uploaded notes before 
 - ChromaDB
 - HuggingFace Embeddings
 - pdfplumber
+- sentence-transformers
 
 ---
 
@@ -112,8 +113,12 @@ Relevant Chunk Retrieval
 Gemini AI Generation
         ↓
 Final Answer
-## ⚡ Quick Demo
 
+
+
+---
+
+## ⚡ Quick Demo
 1. Upload notes file
 2. Ask: **"What is photosynthesis?"**
 3. Get answer OR **"Not found in notes"**
@@ -159,7 +164,7 @@ If not found, say exactly: Not found in notes
 
 ```bash
 pip install -r requirements.txt
-streamlit run app.py
+python -m streamlit run app.py
 ```
 
 ---
@@ -191,6 +196,7 @@ streamlit run app.py
 * Prompt design is critical for accuracy
 * Simpler projects are more reliable
 * Avoid overengineering in hackathons
+* Retrieval improves relevance and reduces hallucination
 
 ---
 
