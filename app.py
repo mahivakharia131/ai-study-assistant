@@ -2,6 +2,9 @@
 import pdfplumber
 import io
 from google import genai
+from langchain.text_splitter import RecursiveCharacterTextSplitter
+from langchain_community.vectorstores import Chroma
+from langchain_google_genai import GoogleGenerativeAIEmbeddings
 
 st.title("📚 AI Study Assistant")
 st.caption("Answers from your notes only — nothing else.")
