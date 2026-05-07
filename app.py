@@ -56,9 +56,9 @@ if st.button("Get Answer", type="primary"):
     else:
         mode_key = "strict" if "Strict" in mode else ("simple" if "Simple" in mode else "exam")
         prompts = {
-            "strict": f"Answer ONLY using these notes. If not found, say exactly: Not found in notes\n\nNOTES:\n{notes_text}\n\nQuestion: {question}",
-            "simple": f"Explain simply using ONLY these notes. If not found, say exactly: Not found in notes\n\nNOTES:\n{notes_text}\n\nQuestion: {question}",
-            "exam": f"Write a structured exam answer using ONLY these notes. Format: one key sentence, then 2-3 bullet points. If not found, say exactly: Not found in notes\n\nNOTES:\n{notes_text}\n\nQuestion: {question}",
+            "strict": f"Answer ONLY using these notes. If not found, say exactly: Not found in notes\n\nNOTES:\n{retrieved_text}\n\nQuestion: {question}",
+            "simple": f"Explain simply using ONLY these notes. If not found, say exactly: Not found in notes\n\nNOTES:\n{retrieved_text}\n\nQuestion: {question}",
+            "exam": f"Write a structured exam answer using ONLY these notes. Format: one key sentence, then 2-3 bullet points. If not found, say exactly: Not found in notes\n\nNOTES:\n{retrieved_text}\n\nQuestion: {question}",
         }
         with st.spinner("Thinking..."):
             client = genai.Client(api_key=api_key)
