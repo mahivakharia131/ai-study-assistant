@@ -1,47 +1,117 @@
-# 📚 AI Study Assistant
 
-> **One-line description:** Upload your notes, ask questions, and get answers strictly from your own content.
 
----
 
-## 🧩 Problem Statement
+# 📚 RAG-Based AI Study Assistant
 
-Students often have large amounts of notes but waste time searching manually before exams.
-This project helps students instantly find answers by asking questions directly from their own notes using AI.
+One-line description: Upload your notes, ask questions, and get AI-generated answers strictly from your own content using Retrieval Augmented Generation (RAG).
 
 ---
 
-## ✨ Features
+# 🧩 Problem Statement
 
-* Upload notes (`.txt` or `.pdf`)
-* Ask questions based on uploaded content
-* 3 answer styles: Strict / Simple / Exam
-* Returns **"Not found in notes"** if answer is missing
-* Minimizes hallucination by restricting answers to provided notes
+Students often have large amounts of notes but waste time searching manually before exams. This project helps students instantly find answers directly from their own notes using AI-powered Retrieval Augmented Generation (RAG).
+
+The system retrieves only the most relevant sections from uploaded notes before generating answers, improving accuracy and reducing hallucinations.
 
 ---
 
-## 🛠️ Tech Stack
+# ✨ Features
 
-* Python
-* Streamlit
-* Google Gemini API (`gemini-2.5-flash`)
-* google-genai SDK
-* pdfplumber
-
----
-
-## ⚙️ How It Works
-
-1. Upload notes file
-2. App extracts text
-3. User enters question
-4. AI receives notes + question + prompt
-5. AI generates answer strictly from notes
-6. Output displayed
+- Upload notes (`.txt` or `.pdf`)
+- Ask questions based on uploaded content
+- 3 answer styles:
+  - Strict
+  - Simple
+  - Exam
+- Uses ChromaDB vector database for retrieval
+- Retrieves only relevant note sections before answering
+- Returns `"Not found in notes"` if answer is missing
+- Minimizes hallucination by restricting answers to uploaded notes
+- Clean and simple Streamlit interface
 
 ---
 
+# 🛠️ Tech Stack
+
+- Python
+- Streamlit
+- Google Gemini API (`gemini-2.5-flash`)
+- google-genai SDK
+- LangChain
+- ChromaDB
+- HuggingFace Embeddings
+- pdfplumber
+
+---
+
+# ⚙️ How The RAG System Works
+
+## Step 1 — Upload Notes
+
+User uploads PDF or TXT notes.
+
+---
+
+## Step 2 — Text Extraction
+
+The application extracts text from uploaded files.
+
+---
+
+## Step 3 — Chunking
+
+Large notes are split into smaller chunks using LangChain text splitters.
+
+---
+
+## Step 4 — Embedding Generation
+
+Embeddings are generated using HuggingFace sentence transformer models.
+
+---
+
+## Step 5 — Vector Storage
+
+Embeddings are stored in ChromaDB vector database.
+
+---
+
+## Step 6 — Retrieval
+
+When user asks a question, the system retrieves the most relevant note chunks.
+
+---
+
+## Step 7 — AI Generation
+
+Gemini AI generates answers using ONLY the retrieved context.
+
+---
+
+## Step 8 — Output
+
+The answer is displayed in the Streamlit interface.
+
+---
+
+# 🧠 RAG Architecture
+
+```text
+User Uploads Notes
+        ↓
+Text Extraction
+        ↓
+Chunking
+        ↓
+Embeddings Generation
+        ↓
+ChromaDB Vector Storage
+        ↓
+Relevant Chunk Retrieval
+        ↓
+Gemini AI Generation
+        ↓
+Final Answer
 ## ⚡ Quick Demo
 
 1. Upload notes file
@@ -85,16 +155,6 @@ If not found, say exactly: Not found in notes
 ```
 
 ---
-
-## 📸 Screenshots
-(Included in the folder)
-
-![alt text](<Screenshot 2026-05-04 003618-1.png>) 
-![alt text](<Screenshot 2026-05-04 003709-1.png>) 
-![alt text](<Screenshot 2026-05-04 003825-1.png>)
-
----
-
 ## ▶️ Quick Start
 
 ```bash
